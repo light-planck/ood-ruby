@@ -1,12 +1,19 @@
-require_relative 'gear'
-require_relative 'wheel'
+require_relative 'road_bike'
+require_relative 'mountain_bike'
+require_relative 'recumbent_bike'
 
 def main
-  wheel = Wheel.new(26, 1.5)
-  puts wheel.circumference
+  road_bike = RoadBike.new(tape_color: 'green')
+  print_variables(road_bike)
 
-  puts Gear.new(52, 11, wheel).gear_inches
-  puts Gear.new(52, 11).ratio
+  bent = RecumbentBike.new(flag: 'tall and orange')
+  puts bent.spears
+end
+
+def print_variables(object)
+  object.instance_variables.each do |var|
+    puts "#{var}: #{object.instance_variable_get(var)}"
+  end
 end
 
 main
